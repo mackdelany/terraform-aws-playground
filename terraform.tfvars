@@ -1,0 +1,1 @@
+namespace = "mack-project"
