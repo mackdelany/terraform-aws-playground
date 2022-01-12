@@ -1,5 +1,5 @@
 output "ami_id" {
-  value = module.fetching.modules.fetching
+  value = module.fetching.ami_id
 }
 
 output "aws_subnet_id" {

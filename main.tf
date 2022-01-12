@@ -3,19 +3,15 @@ provider "aws" {
 }
 
 module "fetching" {
-  source    = "mackdelany/playground/aws"
-  version   = "0.1.5"
-  namespace = "mack"
+  source = "./modules/fetching"
 }
 
 module "networking" {
-  source    = "mackdelany/playground/aws"
-  version   = "0.1.5"
-  namespace = "mack"
+  source = "./modules/networking"
 }
 
 resource "aws_instance" "hello_world" {
-  ami           = module.fetching.modules.fetching
+  ami           = module.fetching.ami_id
   instance_type = "t2.micro"
   subnet_id     = module.networking.aws_subnet_id
   user_data     = <<EOT
